@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://Nixuebing.github.io/blog</id>
+    <id>nixuebing.github.io</id>
     <title>Gridea</title>
-    <updated>2019-05-27T09:46:02.565Z</updated>
+    <updated>2019-05-27T09:48:01.398Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://Nixuebing.github.io/blog"/>
-    <link rel="self" href="https://Nixuebing.github.io/blog/atom.xml"/>
+    <link rel="alternate" href="nixuebing.github.io"/>
+    <link rel="self" href="nixuebing.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://Nixuebing.github.io/blog/images/avatar.png</logo>
-    <icon>https://Nixuebing.github.io/blog/favicon.ico</icon>
+    <logo>nixuebing.github.io/images/avatar.png</logo>
+    <icon>nixuebing.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Gridea</rights>
     <entry>
         <title type="html"><![CDATA[关于]]></title>
-        <id>https://Nixuebing.github.io/blog/post/about</id>
-        <link href="https://Nixuebing.github.io/blog/post/about">
+        <id>nixuebing.github.io/post/about</id>
+        <link href="nixuebing.github.io/post/about">
         </link>
         <updated>2019-01-25T11:09:48.000Z</updated>
         <content type="html"><![CDATA[<p>这是关于的页面，可以在这里向世界介绍你！</p>
@@ -21,8 +21,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://Nixuebing.github.io/blog/post/hello-gridea</id>
-        <link href="https://Nixuebing.github.io/blog/post/hello-gridea">
+        <id>nixuebing.github.io/post/hello-gridea</id>
+        <link href="nixuebing.github.io/post/hello-gridea">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
