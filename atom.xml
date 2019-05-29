@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Nixuebing.github.io/blog</id>
     <title>冰叶小屋</title>
-    <updated>2019-05-29T02:22:24.288Z</updated>
+    <updated>2019-05-29T02:24:01.655Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Nixuebing.github.io/blog"/>
     <link rel="self" href="https://Nixuebing.github.io/blog/atom.xml"/>
@@ -22,7 +22,7 @@
 <!--more-->
 <p><code>股票吸引力指数 = 沪深300的股息率 / 3年期国债收益率。</code></p>
 <p><strong>“股票吸引力指数”如果接近1，甚至大于1，那就代表股票非常适合投资。</strong></p>
-<p>沪深300股息率：理杏仁，搜索沪深300，选择股息率
+<p>沪深300股息率：理杏仁，搜索沪深300，选择股息率<br>
 3年前国债收益率： <a href="https://cn.investing.com/rates-bonds/china-3-year-bond-yield">英为财情</a></p>
 ]]></content>
     </entry>
