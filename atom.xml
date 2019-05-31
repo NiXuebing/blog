@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Nixuebing.github.io/blog</id>
     <title>冰叶小屋</title>
-    <updated>2019-05-31T02:53:10.548Z</updated>
+    <updated>2019-05-31T02:53:38.651Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Nixuebing.github.io/blog"/>
     <link rel="self" href="https://Nixuebing.github.io/blog/atom.xml"/>
@@ -16,7 +16,10 @@
         <link href="https://Nixuebing.github.io/blog/post/ke-zhuan-zhai">
         </link>
         <updated>2019-05-31T01:44:29.000Z</updated>
+        <summary type="html"><![CDATA[<p>可转债：是可以转换成公司股票的债券，由上市公司发行。</p>
+]]></summary>
         <content type="html"><![CDATA[<p>可转债：是可以转换成公司股票的债券，由上市公司发行。</p>
+<!-- more -->
 <h2 id="下有保底">下有保底</h2>
 <p>当公司股票在任意连续三十个交易日中至少有二十个交易日收盘价低于当期转股价格的80%时开股东大会，商议是否下调转股价。转股价下调，对应的可转债票面价值就会提升。</p>
 <p><strong>原来：</strong>
