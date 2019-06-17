@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Nixuebing.github.io/blog</id>
     <title>冰叶小屋</title>
-    <updated>2019-06-17T05:52:12.543Z</updated>
+    <updated>2019-06-17T06:26:06.056Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Nixuebing.github.io/blog"/>
     <link rel="self" href="https://Nixuebing.github.io/blog/atom.xml"/>
@@ -159,6 +159,16 @@
 <li>循环等待，线程 T1 等待线程 T2 占用的资源，线程 T2 等待线程 T1 占用的资源，就是循环等待。</li>
 </ol>
 <p><strong>只要破坏其中一个，就可以成功避免死锁的发生。</strong></p>
+<p>互斥这个条件我们没法破坏，因为我们用锁为的就是互斥。</p>
+<h3 id="1破坏占用且等待条件">1.破坏占用且等待条件</h3>
+<p>理论上要破坏这个条件，可以一次性申请所有资源。<br>
+<strong>等待-通知机制：</strong> 如果线程要求的条件不满足，则线程阻塞自己，进入等待状态；当线程要求的条件满足后，通知等待的线程重新执行。
+wait(), notify(), notifyAll()  方法操作的等待队列是互斥锁的等待队列，所以如果 synchronized 锁定的是 this，那么对应的一定是 this.wait(), this.notify(), this.notifyAll()。<br>
+<strong>尽量使用 notifyAll()，notify() 是会随机地通知等待队列中的一个线程（风险在于可能导致某些线程永远不会被通知到），而 notifyAll() 会通知等待队列中的所有线程。</strong></p>
+<h3 id="2破坏不可抢占条件">2.破坏不可抢占条件</h3>
+<p>核心就是要能够主动释放它占有的资源。这一点 synchronized 是做不到的。原因是 synchronized 申请资源的时候，如果申请不到，线程直接进入阻塞状态了，而线程进入阻塞状态，啥都干不了，也释放不了线程已经占有的资源。</p>
+<h3 id="3破坏循环等待条件">3.破坏循环等待条件</h3>
+<p>破坏这个条件，需要对资源进行排序，然后按序申请资源。</p>
 ]]></content>
     </entry>
     <entry>
