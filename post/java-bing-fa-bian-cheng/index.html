@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://Nixuebing.github.io/blog/favicon.ico?v=1560752764420">
+<link rel="shortcut icon" href="https://Nixuebing.github.io/blog/favicon.ico?v=1560760471334">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://Nixuebing.github.io/blog/styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://Nixuebing.github.io/blog">
-        <img src="https://Nixuebing.github.io/blog/images/avatar.png?v=1560752764420" class="site-logo">
+        <img src="https://Nixuebing.github.io/blog/images/avatar.png?v=1560760471334" class="site-logo">
         <h1 class="site-title">冰叶小屋</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -230,7 +230,7 @@
 <p>互斥这个条件我们没法破坏，因为我们用锁为的就是互斥。</p>
 <h3 id="1破坏占用且等待条件">1.破坏占用且等待条件</h3>
 <p>理论上要破坏这个条件，可以一次性申请所有资源。<br>
-<strong>等待-通知机制：</strong> 如果线程要求的条件不满足，则线程阻塞自己，进入等待状态；当线程要求的条件满足后，通知等待的线程重新执行。
+<strong>等待-通知机制：</strong> 如果线程要求的条件不满足，则线程阻塞自己，进入等待状态；当线程要求的条件满足后，通知等待的线程重新执行。<br>
 wait(), notify(), notifyAll()  方法操作的等待队列是互斥锁的等待队列，所以如果 synchronized 锁定的是 this，那么对应的一定是 this.wait(), this.notify(), this.notifyAll()。<br>
 <strong>尽量使用 notifyAll()，notify() 是会随机地通知等待队列中的一个线程（风险在于可能导致某些线程永远不会被通知到），而 notifyAll() 会通知等待队列中的所有线程。</strong></p>
 <h3 id="2破坏不可抢占条件">2.破坏不可抢占条件</h3>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Nixuebing.github.io/blog</id>
     <title>冰叶小屋</title>
-    <updated>2019-06-17T06:26:06.056Z</updated>
+    <updated>2019-06-17T10:06:56.907Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Nixuebing.github.io/blog"/>
     <link rel="self" href="https://Nixuebing.github.io/blog/atom.xml"/>
@@ -10,6 +10,49 @@
     <logo>https://Nixuebing.github.io/blog/images/avatar.png</logo>
     <icon>https://Nixuebing.github.io/blog/favicon.ico</icon>
     <rights>All rights reserved 2019, 冰叶小屋</rights>
+    <entry>
+        <title type="html"><![CDATA[Java线程的生命周期]]></title>
+        <id>https://Nixuebing.github.io/blog/post/java-xian-cheng-de-sheng-ming-zhou-qi</id>
+        <link href="https://Nixuebing.github.io/blog/post/java-xian-cheng-de-sheng-ming-zhou-qi">
+        </link>
+        <updated>2019-06-17T08:05:55.000Z</updated>
+        <summary type="html"><![CDATA[<p>Java语言中线程共用六种状态，分别是：</p>
+<ol>
+<li>NEW（初始化状态）</li>
+<li>RUNNABLE （可运行/运行状态）</li>
+<li>BLOCKED （阻塞状态）</li>
+<li>WAITING （无时限等待）</li>
+<li>TIMED_WAITING （有时限等待）</li>
+<li>TERMINATED （终止状态）</li>
+</ol>
+<p><img src="http://pic-cloud.ice-leaf.top/pic-cloud/20190617/LJLS86afRhQp.png?imageslim" alt="mark"></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Java语言中线程共用六种状态，分别是：</p>
+<ol>
+<li>NEW（初始化状态）</li>
+<li>RUNNABLE （可运行/运行状态）</li>
+<li>BLOCKED （阻塞状态）</li>
+<li>WAITING （无时限等待）</li>
+<li>TIMED_WAITING （有时限等待）</li>
+<li>TERMINATED （终止状态）</li>
+</ol>
+<p><img src="http://pic-cloud.ice-leaf.top/pic-cloud/20190617/LJLS86afRhQp.png?imageslim" alt="mark"></p>
+<!-- more -->
+<h2 id="1-runnable-与-blocked-的状态转换">1、RUNNABLE 与 BLOCKED 的状态转换</h2>
+<p>只有一种情况会触发，就是线程等待和获取 synchronized 的隐式锁。</p>
+<h2 id="2-runnable-与-waiting-的状态转换">2、RUNNABLE 与 WAITING 的状态转换</h2>
+<ol>
+<li>获得 synchronized 隐式锁的线程，调用无参数的 Object.wait()</li>
+<li>调用无参数的 Thread.join() 方法，等待中的线程其状态会从 RUNNABLE 转换到 WAITING</li>
+<li>调用 LockSupport.park()</li>
+</ol>
+<h2 id="3-runnable-与-timed_waiting-的状态转换">3、RUNNABLE 与 TIMED_WAITING 的状态转换</h2>
+<p>五种场景方法：
+Thread.sleep(long millis)、Object.wait(long timeout)、Thread.join(long millis)、LockSupport.parkNanos(Object blocker, long deadline)、LockSupport.parkUntil(long deadline)</p>
+<h2 id="4-从-new-到-runnable">4、从 NEW 到 RUNNABLE</h2>
+<p>通过 Thread.start() 实现</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Java并发编程]]></title>
         <id>https://Nixuebing.github.io/blog/post/java-bing-fa-bian-cheng</id>
@@ -162,7 +205,7 @@
 <p>互斥这个条件我们没法破坏，因为我们用锁为的就是互斥。</p>
 <h3 id="1破坏占用且等待条件">1.破坏占用且等待条件</h3>
 <p>理论上要破坏这个条件，可以一次性申请所有资源。<br>
-<strong>等待-通知机制：</strong> 如果线程要求的条件不满足，则线程阻塞自己，进入等待状态；当线程要求的条件满足后，通知等待的线程重新执行。
+<strong>等待-通知机制：</strong> 如果线程要求的条件不满足，则线程阻塞自己，进入等待状态；当线程要求的条件满足后，通知等待的线程重新执行。<br>
 wait(), notify(), notifyAll()  方法操作的等待队列是互斥锁的等待队列，所以如果 synchronized 锁定的是 this，那么对应的一定是 this.wait(), this.notify(), this.notifyAll()。<br>
 <strong>尽量使用 notifyAll()，notify() 是会随机地通知等待队列中的一个线程（风险在于可能导致某些线程永远不会被通知到），而 notifyAll() 会通知等待队列中的所有线程。</strong></p>
 <h3 id="2破坏不可抢占条件">2.破坏不可抢占条件</h3>

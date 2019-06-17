@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>标签列表 | 冰叶小屋</title>
+<title>Java线程的生命周期 | 冰叶小屋</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -85,14 +85,64 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="tag-list-title">标签列表</h2>
-          <div class="tags-container">
+          <div class="post-detail">
+            <h2 class="post-title">Java线程的生命周期</h2>
+            <div class="post-date">2019-06-17</div>
             
-              <a class="tag" href="https://Nixuebing.github.io/blog/tag/CXKl6m5iy">并发</a>
+              <div class="feature-container" style="background-image: url('https://Nixuebing.github.io/blog/post-images/java-xian-cheng-de-sheng-ming-zhou-qi.jpg')">
+              </div>
             
-              <a class="tag" href="https://Nixuebing.github.io/blog/tag/m5OF94KKl">理财</a>
+            <div class="post-content">
+              <p>Java语言中线程共用六种状态，分别是：</p>
+<ol>
+<li>NEW（初始化状态）</li>
+<li>RUNNABLE （可运行/运行状态）</li>
+<li>BLOCKED （阻塞状态）</li>
+<li>WAITING （无时限等待）</li>
+<li>TIMED_WAITING （有时限等待）</li>
+<li>TERMINATED （终止状态）</li>
+</ol>
+<p><img src="http://pic-cloud.ice-leaf.top/pic-cloud/20190617/LJLS86afRhQp.png?imageslim" alt="mark"></p>
+<!-- more -->
+<h2 id="1-runnable-与-blocked-的状态转换">1、RUNNABLE 与 BLOCKED 的状态转换</h2>
+<p>只有一种情况会触发，就是线程等待和获取 synchronized 的隐式锁。</p>
+<h2 id="2-runnable-与-waiting-的状态转换">2、RUNNABLE 与 WAITING 的状态转换</h2>
+<ol>
+<li>获得 synchronized 隐式锁的线程，调用无参数的 Object.wait()</li>
+<li>调用无参数的 Thread.join() 方法，等待中的线程其状态会从 RUNNABLE 转换到 WAITING</li>
+<li>调用 LockSupport.park()</li>
+</ol>
+<h2 id="3-runnable-与-timed_waiting-的状态转换">3、RUNNABLE 与 TIMED_WAITING 的状态转换</h2>
+<p>五种场景方法：
+Thread.sleep(long millis)、Object.wait(long timeout)、Thread.join(long millis)、LockSupport.parkNanos(Object blocker, long deadline)、LockSupport.parkUntil(long deadline)</p>
+<h2 id="4-从-new-到-runnable">4、从 NEW 到 RUNNABLE</h2>
+<p>通过 Thread.start() 实现</p>
+
+            </div>
             
+              <div class="tag-container">
+                
+                  <a href="https://Nixuebing.github.io/blog/tag/CXKl6m5iy" class="tag">
+                    并发
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://Nixuebing.github.io/blog/post/java-bing-fa-bian-cheng">
+                  <h3 class="post-title">
+                    Java并发编程
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
           </div>
+
         </div>
       </div>
     </div>
