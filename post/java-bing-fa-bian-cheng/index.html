@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://Nixuebing.github.io/blog/favicon.ico?v=1560416879076">
+<link rel="shortcut icon" href="https://Nixuebing.github.io/blog/favicon.ico?v=1560750729794">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://Nixuebing.github.io/blog/styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://Nixuebing.github.io/blog">
-        <img src="https://Nixuebing.github.io/blog/images/avatar.png?v=1560416879076" class="site-logo">
+        <img src="https://Nixuebing.github.io/blog/images/avatar.png?v=1560750729794" class="site-logo">
         <h1 class="site-title">冰叶小屋</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -170,6 +170,63 @@
 <p>final 修饰变量时，初衷是告诉编译器：这个变量生而不变，可以可劲儿优化。</p>
 <h1 id="解决原子性问题">解决原子性问题</h1>
 <p>原子性问题的源头是<strong>线程切换</strong>。</p>
+<h2 id="synchronize">synchronize</h2>
+<blockquote>
+<p>当修饰静态方法时，锁定的是当前类的 Class 对象；
+当修饰非静态方法的时候，锁定的是当前实例对象 this。</p>
+</blockquote>
+<pre><code class="language-java">class X {
+  // 修饰静态方法
+  synchronized(X.class) static void bar() {
+    // 临界区
+  }
+}
+</code></pre>
+<pre><code class="language-java">class X {
+  // 修饰非静态方法
+  synchronized(this) void foo() {
+    // 临界区
+  }
+}
+</code></pre>
+<p><strong>锁和受保护资源的关系：受保护资源和锁之间的关联关系是 N:1 的关系。</strong></p>
+<pre><code class="language-java">class SafeCalc {
+  static long value = 0L;
+  synchronized long get() {
+    return value;
+  }
+  synchronized static void addOne() {
+    value += 1;
+  }
+}
+</code></pre>
+<p><img src="http://pic-cloud.ice-leaf.top/pic-cloud/20190617/HEicy1QE06wD.png?imageslim" alt="mark"></p>
+<pre><code class="language-java">class Account {
+  private int balance;
+  // 转账
+  synchronized void transfer(
+      Account target, int amt){
+    if (this.balance &gt; amt) {
+      this.balance -= amt;
+      target.balance += amt;
+    }
+  } 
+}
+</code></pre>
+<p>看似正确，但是 this 这把锁可以保护自己的余额 this.balance，却保护不了别人的余额 target.balance。</p>
+<h2 id="死锁">死锁</h2>
+<p><strong>细粒度锁：用不同的锁对受保护资源进行精细化管理，能够提升性能。</strong><br>
+但是使用细粒度锁是有代价的，这个代价就是可能会导致死锁。</p>
+<p><strong>死锁：一组互相竞争资源的线程因互相等待，导致“永久”阻塞的现象。</strong><br>
+解决死锁最好的办法还是规避死锁。</p>
+<p>只有以下四个条件都发生时才会出现死锁：</p>
+<ol>
+<li>互斥，共享资源 X 和 Y 只能被一个线程占用；</li>
+<li>占用且等待，线程 T1 已经取得共享资源 X，在等待共享资源 Y 的时候，不释放共享资源 X；</li>
+<li>不可抢占，其他线程不能强行抢占线程 T1 占用的资源；</li>
+<li>循环等待，线程 T1 等待线程 T2 占用的资源，线程 T2 等待线程 T1 占用的资源，就是循环等待。</li>
+</ol>
+<p><strong>只要破坏其中一个，就可以成功避免死锁的发生。</strong></p>
 
             </div>
             
