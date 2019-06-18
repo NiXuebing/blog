@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Nixuebing.github.io/blog</id>
     <title>冰叶小屋</title>
-    <updated>2019-06-17T10:06:56.907Z</updated>
+    <updated>2019-06-18T02:02:26.495Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Nixuebing.github.io/blog"/>
     <link rel="self" href="https://Nixuebing.github.io/blog/atom.xml"/>
@@ -25,7 +25,6 @@
 <li>TIMED_WAITING （有时限等待）</li>
 <li>TERMINATED （终止状态）</li>
 </ol>
-<p><img src="http://pic-cloud.ice-leaf.top/pic-cloud/20190617/LJLS86afRhQp.png?imageslim" alt="mark"></p>
 ]]></summary>
         <content type="html"><![CDATA[<p>Java语言中线程共用六种状态，分别是：</p>
 <ol>
@@ -36,8 +35,8 @@
 <li>TIMED_WAITING （有时限等待）</li>
 <li>TERMINATED （终止状态）</li>
 </ol>
-<p><img src="http://pic-cloud.ice-leaf.top/pic-cloud/20190617/LJLS86afRhQp.png?imageslim" alt="mark"></p>
 <!-- more -->
+<p><img src="http://pic-cloud.ice-leaf.top/pic-cloud/20190617/LJLS86afRhQp.png?imageslim" alt="mark"></p>
 <h2 id="1-runnable-与-blocked-的状态转换">1、RUNNABLE 与 BLOCKED 的状态转换</h2>
 <p>只有一种情况会触发，就是线程等待和获取 synchronized 的隐式锁。</p>
 <h2 id="2-runnable-与-waiting-的状态转换">2、RUNNABLE 与 WAITING 的状态转换</h2>
