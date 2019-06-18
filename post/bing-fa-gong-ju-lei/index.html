@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Java线程的生命周期 | 冰叶小屋</title>
+<title>并发工具类 | 冰叶小屋</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -86,41 +86,45 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">Java线程的生命周期</h2>
-            <div class="post-date">2019-06-17</div>
+            <h2 class="post-title">并发工具类</h2>
+            <div class="post-date">2019-06-18</div>
             
-              <div class="feature-container" style="background-image: url('https://Nixuebing.github.io/blog/post-images/java-xian-cheng-de-sheng-ming-zhou-qi.jpg')">
+              <div class="feature-container" style="background-image: url('https://Nixuebing.github.io/blog/post-images/bing-fa-gong-ju-lei.jpg')">
               </div>
             
             <div class="post-content">
-              <p>Java语言中线程共用六种状态，分别是：</p>
-<ol>
-<li>NEW（初始化状态）</li>
-<li>RUNNABLE （可运行/运行状态）</li>
-<li>BLOCKED （阻塞状态）</li>
-<li>WAITING （无时限等待）</li>
-<li>TIMED_WAITING （有时限等待）</li>
-<li>TERMINATED （终止状态）</li>
-</ol>
+              <p><strong>Java SDK 并发包通过 Lock 和 Condition 两个接口来实现管程，其中 Lock 用于解决互斥问题，Condition 用于解决同步问题。</strong></p>
 <!-- more -->
-<p><img src="http://pic-cloud.ice-leaf.top/pic-cloud/20190617/LJLS86afRhQp.png?imageslim" alt="mark"></p>
-<h2 id="1-runnable-与-blocked-的状态转换">1、RUNNABLE 与 BLOCKED 的状态转换</h2>
-<p>只有一种情况会触发，就是线程等待和获取 synchronized 的隐式锁。</p>
-<h2 id="2-runnable-与-waiting-的状态转换">2、RUNNABLE 与 WAITING 的状态转换</h2>
+<p>用锁的最佳实践：</p>
 <ol>
-<li>获得 synchronized 隐式锁的线程，调用无参数的 Object.wait()</li>
-<li>调用无参数的 Thread.join() 方法，等待中的线程其状态会从 RUNNABLE 转换到 WAITING</li>
-<li>调用 LockSupport.park()</li>
+<li>永远只在更新对象的成员变量时加锁</li>
+<li>永远只在访问可变的成员变量时加锁</li>
+<li>永远不在调用其他对象的方法时加锁</li>
 </ol>
-<h2 id="3-runnable-与-timed_waiting-的状态转换">3、RUNNABLE 与 TIMED_WAITING 的状态转换</h2>
-<p>五种场景方法：
-Thread.sleep(long millis)<br>
-Object.wait(long timeout)<br>
-Thread.join(long millis)<br>
-LockSupport.parkNanos(Object blocker, long deadline)<br>
-LockSupport.parkUntil(long deadline)</p>
-<h2 id="4-从-new-到-runnable">4、从 NEW 到 RUNNABLE</h2>
-<p>通过 Thread.start() 实现</p>
+<h2 id="lock">Lock</h2>
+<p>Lock 有别于 synchronized 隐式锁的三个特性：</p>
+<ul>
+<li>能够响应中断</li>
+<li>支持超时 - 如果线程在一段时间之内没有获取到锁，不是进入阻塞状态，而是返回一个错误</li>
+<li>非阻塞地获取锁 - 如果尝试获取锁失败，并不进入阻塞状态，而是直接返回</li>
+</ul>
+<pre><code class="language-java">// 支持中断的 API
+void lockInterruptibly() throws InterruptedException;
+// 支持超时的 API
+boolean tryLock(long time, TimeUnit unit) throws InterruptedException;
+// 支持非阻塞获取锁的 API
+boolean tryLock();
+</code></pre>
+<h2 id="condition">Condition</h2>
+<p>线程等待和通知需要调用 await()、asignal()、asignalAll()<br>
+参考 Dubbo 源码 DefaultFuture.get</p>
+<h2 id="readwritelock">ReadWriteLock</h2>
+<p>针对读多写少的并发场景</p>
+<ol>
+<li>允许多个线程同时读共享变量；</li>
+<li>只允许一个线程写共享变量；</li>
+<li>如果一个写线程正在执行写操作，此时禁止读线程读取共享变量。</li>
+</ol>
 
             </div>
             
@@ -135,9 +139,9 @@ LockSupport.parkUntil(long deadline)</p>
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://Nixuebing.github.io/blog/post/java-bing-fa-bian-cheng">
+                <a href="https://Nixuebing.github.io/blog/post/java-xian-cheng-de-sheng-ming-zhou-qi">
                   <h3 class="post-title">
-                    Java并发编程
+                    Java线程的生命周期
                   </h3>
                 </a>
               </div>

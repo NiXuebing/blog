@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Nixuebing.github.io/blog</id>
     <title>冰叶小屋</title>
-    <updated>2019-06-18T02:03:16.488Z</updated>
+    <updated>2019-06-18T10:13:39.097Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Nixuebing.github.io/blog"/>
     <link rel="self" href="https://Nixuebing.github.io/blog/atom.xml"/>
@@ -10,6 +10,48 @@
     <logo>https://Nixuebing.github.io/blog/images/avatar.png</logo>
     <icon>https://Nixuebing.github.io/blog/favicon.ico</icon>
     <rights>All rights reserved 2019, 冰叶小屋</rights>
+    <entry>
+        <title type="html"><![CDATA[并发工具类]]></title>
+        <id>https://Nixuebing.github.io/blog/post/bing-fa-gong-ju-lei</id>
+        <link href="https://Nixuebing.github.io/blog/post/bing-fa-gong-ju-lei">
+        </link>
+        <updated>2019-06-18T02:40:24.000Z</updated>
+        <summary type="html"><![CDATA[<p><strong>Java SDK 并发包通过 Lock 和 Condition 两个接口来实现管程，其中 Lock 用于解决互斥问题，Condition 用于解决同步问题。</strong></p>
+]]></summary>
+        <content type="html"><![CDATA[<p><strong>Java SDK 并发包通过 Lock 和 Condition 两个接口来实现管程，其中 Lock 用于解决互斥问题，Condition 用于解决同步问题。</strong></p>
+<!-- more -->
+<p>用锁的最佳实践：</p>
+<ol>
+<li>永远只在更新对象的成员变量时加锁</li>
+<li>永远只在访问可变的成员变量时加锁</li>
+<li>永远不在调用其他对象的方法时加锁</li>
+</ol>
+<h2 id="lock">Lock</h2>
+<p>Lock 有别于 synchronized 隐式锁的三个特性：</p>
+<ul>
+<li>能够响应中断</li>
+<li>支持超时 - 如果线程在一段时间之内没有获取到锁，不是进入阻塞状态，而是返回一个错误</li>
+<li>非阻塞地获取锁 - 如果尝试获取锁失败，并不进入阻塞状态，而是直接返回</li>
+</ul>
+<pre><code class="language-java">// 支持中断的 API
+void lockInterruptibly() throws InterruptedException;
+// 支持超时的 API
+boolean tryLock(long time, TimeUnit unit) throws InterruptedException;
+// 支持非阻塞获取锁的 API
+boolean tryLock();
+</code></pre>
+<h2 id="condition">Condition</h2>
+<p>线程等待和通知需要调用 await()、asignal()、asignalAll()<br>
+参考 Dubbo 源码 DefaultFuture.get</p>
+<h2 id="readwritelock">ReadWriteLock</h2>
+<p>针对读多写少的并发场景</p>
+<ol>
+<li>允许多个线程同时读共享变量；</li>
+<li>只允许一个线程写共享变量；</li>
+<li>如果一个写线程正在执行写操作，此时禁止读线程读取共享变量。</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Java线程的生命周期]]></title>
         <id>https://Nixuebing.github.io/blog/post/java-xian-cheng-de-sheng-ming-zhou-qi</id>
