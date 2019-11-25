@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Nixuebing.github.io/blog</id>
     <title>冰叶小屋</title>
-    <updated>2019-11-25T07:27:02.814Z</updated>
+    <updated>2019-11-25T08:30:07.513Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Nixuebing.github.io/blog"/>
     <link rel="self" href="https://Nixuebing.github.io/blog/atom.xml"/>
@@ -10,6 +10,67 @@
     <logo>https://Nixuebing.github.io/blog/images/avatar.png</logo>
     <icon>https://Nixuebing.github.io/blog/favicon.ico</icon>
     <rights>All rights reserved 2019, 冰叶小屋</rights>
+    <entry>
+        <title type="html"><![CDATA[Spring IoC]]></title>
+        <id>https://Nixuebing.github.io/blog/post/spring-ioc</id>
+        <link href="https://Nixuebing.github.io/blog/post/spring-ioc">
+        </link>
+        <updated>2019-07-04T07:28:57.000Z</updated>
+        <summary type="html"><![CDATA[<p>容器创建 Bean 对象，将它们装配在一起，配置它们并管理它们的完整生命周期。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>容器创建 Bean 对象，将它们装配在一起，配置它们并管理它们的完整生命周期。</p>
+<!-- more -->
+<p>· Spring 容器使用依赖注入来管理组成应用程序的 Bean 对象。<br>
+· 容器通过读取提供的配置元数据 Bean Definition 来接收对象进行实例化，配置和组装的指令。<br>
+· 该配置元数据 Bean Definition 可以通过 XML，Java 注解或 Java Config 代码提供。</p>
+<figure data-type="image" tabindex="1"><img src="http://pic-cloud.ice-leaf.top/pic-cloud/20191125/YuhoqTlfoWNG.png?imageslim" alt="mark"></figure>
+<h2 id="可以通过三种方式完成依赖注入">可以通过三种方式完成依赖注入？</h2>
+<p>· 接口注入<br>
+· 构造函数注入<br>
+· setter 注入<br>
+目前，在 Spring Framework 中，仅使用构造函数和 setter 注入这两种方式。</p>
+<h2 id="spring-中有两种-ioc-容器">Spring 中有两种 IoC 容器？</h2>
+<p>BeanFactory ，就像一个包含 Bean 集合的工厂类。它会在客户端要求时实例化 Bean 对象。</p>
+<p>ApplicationContext 接口扩展了 BeanFactory 接口，它在 BeanFactory 基础上提供了一些额外的功能。内置如下功能：</p>
+<p>BeanFactory 也被称为低级容器，而 ApplicationContext 被称为高级容器。<br>
+<img src="http://pic-cloud.ice-leaf.top/pic-cloud/20191125/kFom1EXzrQWX.png?imageslim" alt="mark"></p>
+<h2 id="spring-bean-在容器的生命周期">Spring Bean 在容器的生命周期</h2>
+<p>· 实例化 Bean 对象<br>
+Spring 容器根据配置中的 Bean Definition(通过 XML，Java 注解或 Java Config 代码提供)中实例化 Bean 对象。<br>
+Spring 使用依赖注入填充所有属性，如 Bean 中所定义的配置。</p>
+<p>· Aware 相关的属性，注入到 Bean 对象<br>
+· 调用相应的方法，进一步初始化 Bean 对象<br>
+· 如果 Bean 实现 DisposableBean 接口，当 spring 容器关闭时，会调用 #destroy() 方法。<br>
+· 如果为 bean 指定了 destroy 方法（例如 <bean /> 的 destroy-method 属性），那么将调用该方法。</p>
+<figure data-type="image" tabindex="2"><img src="http://pic-cloud.ice-leaf.top/pic-cloud/20191125/F4hqfQoPRduo.png?imageslim" alt="mark"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Spring 框架中的设计模式]]></title>
+        <id>https://Nixuebing.github.io/blog/post/spring-kuang-jia-zhong-de-she-ji-mo-shi</id>
+        <link href="https://Nixuebing.github.io/blog/post/spring-kuang-jia-zhong-de-she-ji-mo-shi">
+        </link>
+        <updated>2019-07-01T02:45:34.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="解释器模式">解释器模式</h1>
+<p>在现实世界中，我们人类需要解释手势。他们可以对文化有不同的含义。这是我们的解释，给他们一个意义。在编程中，我们还需要分析一件事情，并决定它是什么意思。我们可以用解释设计模式来做。</p>
+<p>Spring Expression Language（Spel）</p>
+<h1 id="创建模式三剑客">创建模式三剑客</h1>
+<p>· 建设者模式<br>
+· 工厂模式<br>
+· 抽象工厂模式</p>
+<h1 id="代理模式">代理模式</h1>
+<p>面向切面编程（AOP）</p>
+<h1 id="组合模式">组合模式</h1>
+<p>这种模式是基于具有共同行为的多个对象的存在，用于构建更大的对象。较大的对象仍然具有与最小对象相同的特征。如多个监听器，放入一个 composite.list 循环执行</p>
+<h1 id="策略模式">策略模式</h1>
+<p>策略定义了通过不同方式完成相同事情的几个对象。完成任务的方式取决于采用的策略。例如在 web 中的策略运用，方法可以通过多个条件解决选择不同策略：属性映射，HTTP请求参数或URL路径。</p>
+<h1 id="模板模式">模板模式</h1>
+<p>此模式定义了类行为的骨架，并将子步骤的某些步骤的延迟执行(具体就是一个方法放在另一个方法中，只有调用另一方方法的时候这个方法才会执行,而且还可能会在其他行为方法之后按顺序执行)。</p>
+<h1 id="观察者模式">观察者模式</h1>
+<h1 id="适配器模式">适配器模式</h1>
+<h1 id="装饰器模式">装饰器模式</h1>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[并发工具类]]></title>
         <id>https://Nixuebing.github.io/blog/post/bing-fa-gong-ju-lei</id>

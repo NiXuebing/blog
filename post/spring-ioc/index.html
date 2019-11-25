@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>可转债 | 冰叶小屋</title>
+<title>Spring IoC | 冰叶小屋</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -86,100 +86,45 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">可转债</h2>
-            <div class="post-date">2019-05-31</div>
+            <h2 class="post-title">Spring IoC</h2>
+            <div class="post-date">2019-07-04</div>
             
-              <div class="feature-container" style="background-image: url('https://Nixuebing.github.io/blog/post-images/ke-zhuan-zhai.jpg')">
+              <div class="feature-container" style="background-image: url('https://Nixuebing.github.io/blog/post-images/spring-ioc.jpg')">
               </div>
             
             <div class="post-content">
-              <p>可转债：是可以转换成公司股票的债券，由上市公司发行。</p>
+              <p>容器创建 Bean 对象，将它们装配在一起，配置它们并管理它们的完整生命周期。</p>
 <!-- more -->
-<h2 id="下有保底">下有保底</h2>
-<p>当公司股票在任意连续三十个交易日中至少有二十个交易日收盘价低于当期转股价格的80%时开股东大会，商议是否下调转股价。转股价下调，对应的可转债票面价值就会提升。</p>
-<p><strong>原来：</strong><br>
-<strong>100元可转债=52.5元的股票价格</strong><br>
-<strong>下调转股价后</strong><br>
-<strong>100元可转债=40元的股票价格</strong></p>
-<p>如果公司股票在任何连续三十个交易日的收盘价格低于当期转股价格的70%时，公司以约定的价格回售。</p>
-<h2 id="上不封顶">上不封顶</h2>
-<p>到130时可以转股</p>
-<p><strong>强制赎回</strong>：如果公司A股股票连续三十个交易日中至少有十五个交易日的收盘价格不低于当期转股价格的130%（含130%），这个时候你就要转股了，不转股上市公司要以回售价格（103）收回了。</p>
-<h2 id="挑选方法">挑选方法</h2>
-<p><a href="https://www.jisilu.cn/data/cbnew/#cb">集思录</a></p>
-<p>溢价率&lt;20%<br>
-到期收益率&gt;0%<br>
-评级是AA级以上（也就是AA,AA+,AAA是符合的）<br>
-上市满半年</p>
-<h2 id="卖出方法">卖出方法</h2>
-<p>当可转债涨到130块以上时，只要从最高点跌去10块钱，就可以卖出。</p>
-<table>
-<thead>
-<tr>
-<th>可转债名称</th>
-<th>当前价格</th>
-<th>溢价率</th>
-<th>到期收益率</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>国贸转债</td>
-<td>110.880</td>
-<td>13.77%</td>
-<td>0.18%</td>
-</tr>
-<tr>
-<td>光大转债</td>
-<td>108.050</td>
-<td>15.01%</td>
-<td>0.31%</td>
-</tr>
-<tr>
-<td>湖广转债</td>
-<td>108.610</td>
-<td>5.16%</td>
-<td>0.91%</td>
-</tr>
-<tr>
-<td>山鹰转债</td>
-<td>106.900</td>
-<td>5.32%</td>
-<td>1.94%</td>
-</tr>
-<tr>
-<td>江银转债</td>
-<td>105.189</td>
-<td>5.64%</td>
-<td>0.90%</td>
-</tr>
-<tr>
-<td>张行转债</td>
-<td>102.803</td>
-<td>10.07%</td>
-<td>2.00%</td>
-</tr>
-<tr>
-<td>苏农转债</td>
-<td>105.950</td>
-<td>10.66%</td>
-<td>1.74%</td>
-</tr>
-<tr>
-<td>无锡转债</td>
-<td>101.290</td>
-<td>17.93%</td>
-<td>1.77%</td>
-</tr>
-</tbody>
-</table>
+<p>· Spring 容器使用依赖注入来管理组成应用程序的 Bean 对象。<br>
+· 容器通过读取提供的配置元数据 Bean Definition 来接收对象进行实例化，配置和组装的指令。<br>
+· 该配置元数据 Bean Definition 可以通过 XML，Java 注解或 Java Config 代码提供。</p>
+<figure data-type="image" tabindex="1"><img src="http://pic-cloud.ice-leaf.top/pic-cloud/20191125/YuhoqTlfoWNG.png?imageslim" alt="mark"></figure>
+<h2 id="可以通过三种方式完成依赖注入">可以通过三种方式完成依赖注入？</h2>
+<p>· 接口注入<br>
+· 构造函数注入<br>
+· setter 注入<br>
+目前，在 Spring Framework 中，仅使用构造函数和 setter 注入这两种方式。</p>
+<h2 id="spring-中有两种-ioc-容器">Spring 中有两种 IoC 容器？</h2>
+<p>BeanFactory ，就像一个包含 Bean 集合的工厂类。它会在客户端要求时实例化 Bean 对象。</p>
+<p>ApplicationContext 接口扩展了 BeanFactory 接口，它在 BeanFactory 基础上提供了一些额外的功能。内置如下功能：</p>
+<p>BeanFactory 也被称为低级容器，而 ApplicationContext 被称为高级容器。<br>
+<img src="http://pic-cloud.ice-leaf.top/pic-cloud/20191125/kFom1EXzrQWX.png?imageslim" alt="mark"></p>
+<h2 id="spring-bean-在容器的生命周期">Spring Bean 在容器的生命周期</h2>
+<p>· 实例化 Bean 对象<br>
+Spring 容器根据配置中的 Bean Definition(通过 XML，Java 注解或 Java Config 代码提供)中实例化 Bean 对象。<br>
+Spring 使用依赖注入填充所有属性，如 Bean 中所定义的配置。</p>
+<p>· Aware 相关的属性，注入到 Bean 对象<br>
+· 调用相应的方法，进一步初始化 Bean 对象<br>
+· 如果 Bean 实现 DisposableBean 接口，当 spring 容器关闭时，会调用 #destroy() 方法。<br>
+· 如果为 bean 指定了 destroy 方法（例如 <bean /> 的 destroy-method 属性），那么将调用该方法。</p>
+<figure data-type="image" tabindex="2"><img src="http://pic-cloud.ice-leaf.top/pic-cloud/20191125/F4hqfQoPRduo.png?imageslim" alt="mark"></figure>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://Nixuebing.github.io/blog/tag/m5OF94KKl" class="tag">
-                    理财
+                  <a href="https://Nixuebing.github.io/blog/tag/kZliGI4sc" class="tag">
+                    Spring
                   </a>
                 
               </div>
@@ -187,9 +132,9 @@
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://Nixuebing.github.io/blog/post/gu-shi-ru-chang-pan-duan-biao-zhun">
+                <a href="https://Nixuebing.github.io/blog/post/spring-kuang-jia-zhong-de-she-ji-mo-shi">
                   <h3 class="post-title">
-                    股市入场判断标准
+                    Spring 框架中的设计模式
                   </h3>
                 </a>
               </div>
