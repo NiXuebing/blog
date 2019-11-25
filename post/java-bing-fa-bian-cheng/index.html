@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://Nixuebing.github.io/blog/favicon.ico?v=1574647664424">
+<link rel="shortcut icon" href="https://Nixuebing.github.io/blog/favicon.ico?v=1574648788030">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://Nixuebing.github.io/blog/styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://Nixuebing.github.io/blog">
-        <img src="https://Nixuebing.github.io/blog/images/avatar.png?v=1574647664424" class="site-logo">
+        <img src="https://Nixuebing.github.io/blog/images/avatar.png?v=1574648788030" class="site-logo">
         <h1 class="site-title">冰叶小屋</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -93,8 +93,7 @@
               </div>
             
             <div class="post-content">
-              <h1 id="并发bug的源头">并发Bug的源头</h1>
-<p>核心矛盾在于CPU、内存、I/O设备的速度差异。</p>
+              <p>核心矛盾在于CPU、内存、I/O设备的速度差异。</p>
 <!-- more -->
 <p>为了合理利用CPU的高性能，平衡三者的速度差异：</p>
 <ol>
@@ -102,6 +101,7 @@
 <li>操作系统增加了进程、线程，以分时复用 CPU，进而均衡 CPU 与 I/O 设备的速度差异；</li>
 <li>编译程序优化指令执行次序，使得缓存能够得到更加合理地利用。</li>
 </ol>
+<h1 id="并发bug的源头">并发Bug的源头</h1>
 <h2 id="源头之一缓存导致的可见性问题">源头之一：缓存导致的可见性问题</h2>
 <p>一个线程对共享变量的修改，另外一个线程能够立刻看到，我们称为<strong>可见性</strong>。</p>
 <figure data-type="image" tabindex="1"><img src="http://pic-cloud.ice-leaf.top/pic-cloud/20190613/26wHwGbSupfO.png?imageslim" alt="mark"></figure>
