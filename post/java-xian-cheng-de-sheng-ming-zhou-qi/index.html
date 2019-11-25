@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://Nixuebing.github.io/blog/favicon.ico?v=1560852816826">
+<link rel="shortcut icon" href="https://Nixuebing.github.io/blog/favicon.ico?v=1574647664424">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://Nixuebing.github.io/blog/styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://Nixuebing.github.io/blog">
-        <img src="https://Nixuebing.github.io/blog/images/avatar.png?v=1560852816826" class="site-logo">
+        <img src="https://Nixuebing.github.io/blog/images/avatar.png?v=1574647664424" class="site-logo">
         <h1 class="site-title">冰叶小屋</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -103,7 +103,7 @@
 <li>TERMINATED （终止状态）</li>
 </ol>
 <!-- more -->
-<p><img src="http://pic-cloud.ice-leaf.top/pic-cloud/20190617/LJLS86afRhQp.png?imageslim" alt="mark"></p>
+<figure data-type="image" tabindex="1"><img src="http://pic-cloud.ice-leaf.top/pic-cloud/20190617/LJLS86afRhQp.png?imageslim" alt="mark"></figure>
 <h2 id="1-runnable-与-blocked-的状态转换">1、RUNNABLE 与 BLOCKED 的状态转换</h2>
 <p>只有一种情况会触发，就是线程等待和获取 synchronized 的隐式锁。</p>
 <h2 id="2-runnable-与-waiting-的状态转换">2、RUNNABLE 与 WAITING 的状态转换</h2>
@@ -113,7 +113,7 @@
 <li>调用 LockSupport.park()</li>
 </ol>
 <h2 id="3-runnable-与-timed_waiting-的状态转换">3、RUNNABLE 与 TIMED_WAITING 的状态转换</h2>
-<p>五种场景方法：
+<p>五种场景方法：<br>
 Thread.sleep(long millis)<br>
 Object.wait(long timeout)<br>
 Thread.join(long millis)<br>
